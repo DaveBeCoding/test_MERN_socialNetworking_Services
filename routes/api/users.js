@@ -62,4 +62,4 @@ router.post(
 
 module.exports = router;
 
-// validation
+// same user cannot be added to databae twice
