@@ -1,8 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const bcryot = require('bcryptjs');
 const { check, validationResult } = require('express-validator');
 const User = require('../../models/User');
 const gravatar = require('gravatar');
+const bcrypt = require('bcryptjs/dist/bcrypt');
+
 // @route POST api/users
 // @desc Register user
 // @access Public
@@ -43,9 +46,13 @@ router.post(
         avatar,
         password,
       });
-      // Encrypt password
+
+      salt = await bcrypt.genSalt(10);
+      user.password = await bcrypt.hash(password, salt);
+      await user.save();
+
       //Return Jsonwebtoken
-      res.send('User route');
+      res.send('User registered');
     } catch (error) {
       console.log(error.message);
       res.status(500).send('Server Error');
