@@ -77,4 +77,4 @@ router.post(
 
 module.exports = router;
 
-// same user cannot be added to databae twice
+// checked payload of web token against decoder, correctly functioning
