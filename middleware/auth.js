@@ -22,4 +22,4 @@ module.exports = function (req, res, next) {
   }
 };
 
-// implement this into the protect route(s)
+// implement this into the protected route(s)
