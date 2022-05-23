@@ -22,4 +22,7 @@ module.exports = function (req, res, next) {
   }
 };
 
-// implement this into the protected route(s)
+// next set up user object, identifier
+// set up login credentials
+// identify users logged in to the database
+// automatically use web token for each user in DB
